@@ -4,6 +4,13 @@ body{
     font-size: 14px;
     color: #727272;
     line-height: 21px;
+    height: 100%;
+    
+}
+.body_{
+    display: flex;
+	flex-direction: column;
+	min-height: 100%;
 }
 /*
 .full{
@@ -54,9 +61,9 @@ body{
 .header{
     width: 100%;
     height: 90px;
-    max-width: 1200px;
     margin: 0 auto;
-    background: url("../test/img/intro.png") center no-repeat;
+    background-color: #8cc34b; 
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);   
     top: 0;
     left: 0;
     right: 0;
@@ -102,17 +109,17 @@ body{
     opacity: 1;
 }
 .section{
-    
+    flex: 1 0 auto;
     width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     background: url("../test/img/Background.png") center no-repeat;
 }
 
 .section_header{
     width: 100%;
     max-width: 610px;
-    margin: 51px auto 40px;
+    margin: 75px auto 20px;
 
     text-align: center;
 }
@@ -124,9 +131,10 @@ body{
     text-align: center;
 }
 .section_title{
-color: #212121;
-font-family: "Fira Sans";
-font-size: 42px;
+    color: #212121;
+    font-family: "Fira Sans";
+    font-size: 42px;
+    margin: 0 auto;
 }
 .section_subtitle{
     
@@ -138,16 +146,15 @@ font-size: 42px;
     }
 
 .container_1{
-    
+    flex-wrap:wrap;
     width: 100%;
     max-width: 1200px;
     margin: auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .section_one{
-    height: 100%;
-    max-height: 200px;
+    margin-left: 30px;
     display: flex;
     align-items: flex-start;
     
@@ -155,7 +162,6 @@ font-size: 42px;
 .section_t{
     padding-left: 20px;
     height: 100%;
-    max-height: 200px;
 }
 .section_Title{
     margin: 1px 0px 15px 0px;
@@ -170,12 +176,11 @@ font-size: 42px;
     font-size: 14px;
 }
 .footer{
-    
+    flex: 0 0 auto;
     width: 100%;
     max-width: 1200px;
     height: 100%;
-    height: 1239px;
-    margin: 75px auto 0;
+    margin: 60px auto 10px;
     background: url("../test/img/bg.png") center no-repeat;
 }
 
@@ -249,16 +254,17 @@ font-size: 18px;
 .final{
     height: 100%;
     width: 100%;
-    max-width: 1200px;
     max-height: 72px;
     margin: 0 auto 0;
-    background: url("../test/img/end.png") center no-repeat;
+    background-color: #212121;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+
 }
 .final_text{
     max-width: 509px;
     text-align: center;
     padding-top: 15px;
-    padding-bottom: 4px;
+    padding-bottom: 7px;
     margin:  auto;
     opacity: 0.5;
     color: #ffffff;
