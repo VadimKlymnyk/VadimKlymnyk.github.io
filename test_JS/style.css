@@ -318,12 +318,13 @@ font-size: 18px;
     left: 20px;
     height: 20px;
     width: 20px;
-    background-image: url("../test/img/Rounded_Rectangle_2.png");
+    border: 2px solid #b6b6b6;
+    background-color: #ffffff;
   }
   
   
   .container_check input:checked ~ .checkmark {
-    background-image: url("../test/img/Rounded_Rectangle.png");
+    background-color: #8cc34b;
   }
   
   .checkmark:after {
@@ -350,8 +351,5 @@ font-size: 18px;
   .container_check input:checked ~ .container_item_btn_text {
     color: #8cc34b;
   }
-  .container_check input:checked ~ .container_item{
-    opacity: 0.5;
-
-  }
+  
   
