@@ -20,6 +20,11 @@
             text-align: center;
 
         }
+        .select1 {
+            margin-top: 20px;
+            margin-left: 50px;
+
+        }
 
         .circle {
             transition-property: width, height, margin-left, margin-top;
@@ -48,6 +53,13 @@
 
         </tbody>
     </table>
+
+    <select class = "select1" id="mySelect" onchange="myFunction()">
+        <option value="match_id">Match_id</option>
+        <option value="kills">Kills</option>
+        <option value="assists">Assists</option>
+        <option value="deaths">Deaths</option>
+    </select>
 </body>
 
 </html>
