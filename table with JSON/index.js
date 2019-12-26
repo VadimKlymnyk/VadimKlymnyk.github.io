@@ -30,90 +30,57 @@ function showCircle(cx, cy, radius, callback) {
     });
 }
 */
-
+let listGame = {}
 fetch('https://raw.githubusercontent.com/bedryck/mockDotaCharts/master/recentMatches.json')
-.then(data => {
-    //console.log(data);
-    return data.json();
-    
+    .then(data => data.json())
+    .then(data => {
+        listGame = data.map(game => ({ match_id: game.match_id, kills: game.kills, assists: game.assists, deaths: game.deaths }))
+        //console.log(listGame)
+        printList(listGame)
 
-})
-.then(data =>{
-    let listGame = data.map(game => ({match_id: game.match_id, kills: game.kills, assists: game.assists, deaths:game.deaths}))
-    //console.log(listGame)
-    
-    //listGame.sort(function (a, b) {
-     //   return a.match_id - b.match_id;
-    //});
-    //console.log(listGame)
-    
-    
-    if(listGame.length>0){
+    })
+
+
+function printList(list) {
+    if (list.length > 0) {
         let tab = "";
         let num = 1;
-        listGame.forEach((element) => {
+        list.forEach((element) => {
             tab += "<tr>";
-            tab += "<td>" + num +"</td>";
-            tab += "<td value='match_id'>" + element.match_id +"</td>";
-            tab += "<td>" + element.kills +"</td>";
-            tab += "<td>" + element.assists +"</td>";
-            tab += "<td>" + element.deaths +"</td></tr>";
-            num ++;
+            tab += "<td>" + num + "</td>";
+            tab += "<td value='match_id'>" + element.match_id + "</td>";
+            tab += "<td>" + element.kills + "</td>";
+            tab += "<td>" + element.assists + "</td>";
+            tab += "<td>" + element.deaths + "</td></tr>";
+            num++;
         });
         document.getElementById("data").innerHTML = tab;
-        //console.log(tab)  
-        
-
     }
+}
 
-    
-    
-})
+
 function myFunction() {
-  let sel=document.getElementById('mySelect').value;
-    //console.log()
-    //console.log(data.sort ( ( x, y )=>  x.match_id - y.match_id));
 
-    fetch('https://raw.githubusercontent.com/bedryck/mockDotaCharts/master/recentMatches.json')
-    .then(data => {
-    //console.log(data);
-    return data.json();
-    })
-    .then(data =>{
-        let listGame = data.map(game => ({match_id: game.match_id, kills: game.kills, assists: game.assists, deaths:game.deaths}))
-        switch(sel){
-        case  'match_id' :
-        listGame.sort ( ( x, y )=>  x.match_id - y.match_id);
-        break;
-        case  'kills' :
-        listGame.sort ( ( x, y )=>  x.kills - y.kills);
-        break;
-        case  'assists' :
-        listGame.sort ( ( x, y )=>  x.assists - y.assists);
-        break;
-        case  'deaths' :
-        listGame.sort ( ( x, y )=>  x.deaths - y.deaths);
-        break;
-        }
-        if(listGame.length>0){
-            let tab = "";
-            let num = 1;
-            listGame.forEach((element) => {
-                tab += "<tr>";
-                tab += "<td>" + num +"</td>";
-                tab += "<td value='match_id'>" + element.match_id +"</td>";
-                tab += "<td>" + element.kills +"</td>";
-                tab += "<td>" + element.assists +"</td>";
-                tab += "<td>" + element.deaths +"</td></tr>";
-                num ++;
-            });
-            document.getElementById("data").innerHTML = tab;
-            //console.log(tab)  
-            
-        }
-        
-    })
-    
+    let sel = document.getElementById('mySelect').value;
+    switch (sel) {
+        case 'match_id':
+            listGame.sort((x, y) => x.match_id - y.match_id);
+            break;
+        case 'kills':
+            listGame.sort((x, y) => x.kills - y.kills);
+            break;
+        case 'assists':
+            listGame.sort((x, y) => x.assists - y.assists);
+            break;
+        case 'deaths':
+            listGame.sort((x, y) => x.deaths - y.deaths);
+            break;
+    }
+    printList(listGame)
+
+
+
+
 }
 
 
@@ -128,7 +95,7 @@ function delay(ms){
         },ms)
     });
 }
- 
+
 delay(2000).then(() => console.log('2 sec'))
 
 delay(4000).then(() => console.log('4 sec'))
