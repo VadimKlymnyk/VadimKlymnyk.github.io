@@ -42,6 +42,7 @@ fetch('https://raw.githubusercontent.com/bedryck/mockDotaCharts/master/recentMat
 
 
 function printList(list) {
+    console.log(list)
     if (list.length > 0) {
         let tab = "";
         let num = 1;
