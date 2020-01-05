@@ -31,9 +31,11 @@ function showCircle(cx, cy, radius, callback) {
 }
 */
 let listGame = {}
-fetch('https://raw.githubusercontent.com/bedryck/mockDotaCharts/master/recentMatches.json')
+let data = new FormData
+fetch('https://raw.githubusercontent.com/bedryck/mockDotaCharts/master/recentMatches.json', data)
     .then(data => data.json())
     .then(data => {
+        console.log(data)
         listGame = data.map(game => ({ match_id: game.match_id, kills: game.kills, assists: game.assists, deaths: game.deaths }))
         //console.log(listGame)
         printList(listGame)
